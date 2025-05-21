@@ -98,19 +98,25 @@ export function AlgorithmPerformance({ results }: AlgorithmPerformanceProps) {
 
   return (
     <Card className="border-none shadow-md">
-      <CardHeader className="bg-gradient-to-r from-indigo-500/10 to-blue-500/10 dark:from-indigo-900/20 dark:to-blue-900/20">
-        <CardTitle className="text-xl text-indigo-700 dark:text-indigo-300">Algorithm Performance Radar</CardTitle>
-        <CardDescription className="text-gray-600 dark:text-gray-300">
+      <CardHeader className="bg-gradient-to-r from-indigo-500/10 to-blue-500/10 dark:from-indigo-900/20 dark:to-blue-900/20 p-4 md:p-6">
+        <CardTitle className="text-lg md:text-xl text-indigo-700 dark:text-indigo-300">
+          Algorithm Performance Radar
+        </CardTitle>
+        <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
           Comparing normalized performance across all metrics
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <div className="h-[500px]">
+      <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+        <div className="h-[350px] md:h-[500px]">
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart outerRadius={150} data={radarData}>
+            <RadarChart outerRadius={window.innerWidth < 768 ? 100 : 150} data={radarData}>
               <PolarGrid stroke="#e0e0e0" />
-              <PolarAngleAxis dataKey="metric" tick={{ fill: "#666" }} />
-              <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: "#666" }} />
+              <PolarAngleAxis dataKey="metric" tick={{ fill: "#666", fontSize: window.innerWidth < 768 ? 10 : 12 }} />
+              <PolarRadiusAxis
+                angle={30}
+                domain={[0, 100]}
+                tick={{ fill: "#666", fontSize: window.innerWidth < 768 ? 10 : 12 }}
+              />
               <Radar
                 name="Shortest Job First"
                 dataKey="SJF"
@@ -135,32 +141,32 @@ export function AlgorithmPerformance({ results }: AlgorithmPerformanceProps) {
                 fillOpacity={0.6}
                 strokeWidth={2}
               />
-              <Legend wrapperStyle={{ paddingTop: "20px" }} />
+              <Legend wrapperStyle={{ paddingTop: "20px", fontSize: window.innerWidth < 768 ? 10 : 12 }} />
             </RadarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-300">
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700">
+          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
             This radar chart shows the normalized performance of each algorithm across all metrics. Higher values
             (further from center) indicate better performance.
           </p>
-          <ul className="list-disc list-inside mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-            <li className="text-sm text-blue-600 dark:text-blue-400">
+          <ul className="list-disc list-inside mt-2 grid grid-cols-1 gap-1 text-xs md:text-sm">
+            <li className="text-blue-600 dark:text-blue-400">
               <span className="text-gray-600 dark:text-gray-300">Execution Time:</span> Lower is better (normalized to
               higher score)
             </li>
-            <li className="text-sm text-purple-600 dark:text-purple-400">
+            <li className="text-purple-600 dark:text-purple-400">
               <span className="text-gray-600 dark:text-gray-300">Turnaround Time:</span> Lower is better (normalized to
               higher score)
             </li>
-            <li className="text-sm text-green-600 dark:text-green-400">
+            <li className="text-green-600 dark:text-green-400">
               <span className="text-gray-600 dark:text-gray-300">CPU Utilization:</span> Higher is better
             </li>
-            <li className="text-sm text-amber-600 dark:text-amber-400">
+            <li className="text-amber-600 dark:text-amber-400">
               <span className="text-gray-600 dark:text-gray-300">Fairness Index:</span> Higher is better
             </li>
-            <li className="text-sm text-pink-600 dark:text-pink-400">
+            <li className="text-pink-600 dark:text-pink-400">
               <span className="text-gray-600 dark:text-gray-300">Overall Score:</span> Higher is better
             </li>
           </ul>

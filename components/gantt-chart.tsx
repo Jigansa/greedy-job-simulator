@@ -73,18 +73,20 @@ export function GanttChart({ results }: GanttChartProps) {
 
   return (
     <Card className="border-none shadow-md">
-      <CardHeader className="bg-gradient-to-r from-green-500/10 to-teal-500/10 dark:from-green-900/20 dark:to-teal-900/20">
-        <CardTitle className="text-xl text-green-700 dark:text-green-300">Gantt Chart Visualization</CardTitle>
-        <CardDescription className="text-gray-600 dark:text-gray-300">
+      <CardHeader className="bg-gradient-to-r from-green-500/10 to-teal-500/10 dark:from-green-900/20 dark:to-teal-900/20 p-4 md:p-6">
+        <CardTitle className="text-lg md:text-xl text-green-700 dark:text-green-300">
+          Gantt Chart Visualization
+        </CardTitle>
+        <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
           Visual representation of job execution over time
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
         <Tabs
           defaultValue={algorithmNames[0]}
           onValueChange={(value) => setSelectedAlgorithm(algorithmNames.indexOf(value))}
         >
-          <TabsList className="grid w-full grid-cols-3 bg-green-50 dark:bg-green-900/20 p-1 mb-6">
+          <TabsList className="grid w-full grid-cols-3 bg-green-50 dark:bg-green-900/20 p-1 mb-4 md:mb-6 text-xs md:text-sm">
             {algorithmNames.map((name) => (
               <TabsTrigger
                 key={name}
@@ -97,13 +99,13 @@ export function GanttChart({ results }: GanttChartProps) {
           </TabsList>
 
           <TabsContent value={algorithmNames[selectedAlgorithm]}>
-            <div className="h-[400px]">
+            <div className="h-[300px] md:h-[400px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={ganttData}
                   layout="vertical"
                   barCategoryGap={4}
-                  margin={{ top: 20, right: 30, left: 100, bottom: 20 }}
+                  margin={{ top: 20, right: 20, left: 70, bottom: 20 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                   <XAxis
@@ -145,12 +147,12 @@ export function GanttChart({ results }: GanttChartProps) {
               </ResponsiveContainer>
             </div>
 
-            <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700">
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+            <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 text-xs md:text-sm">
+              <p className="text-gray-600 dark:text-gray-300">
                 This Gantt chart shows the execution schedule for the {results[selectedAlgorithm]?.name} algorithm. Each
                 bar represents a job, with the width indicating its execution time.
               </p>
-              <p className="mt-2 text-sm font-medium text-green-700 dark:text-green-400">
+              <p className="mt-2 font-medium text-green-700 dark:text-green-400">
                 Total execution time: {results[selectedAlgorithm]?.totalExecutionTime.toFixed(2)} units
               </p>
             </div>

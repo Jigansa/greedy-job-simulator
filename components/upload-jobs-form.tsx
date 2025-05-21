@@ -173,16 +173,16 @@ export function UploadJobsForm() {
   return (
     <div className="grid gap-6">
       <Card className="border-none shadow-md bg-white dark:bg-gray-800">
-        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 rounded-t-lg">
-          <CardTitle className="text-2xl text-blue-700 dark:text-blue-300">Upload Jobs</CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-300">
+        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 rounded-t-lg p-4 md:p-6">
+          <CardTitle className="text-xl md:text-2xl text-blue-700 dark:text-blue-300">Upload Jobs</CardTitle>
+          <CardDescription className="text-sm md:text-base text-gray-600 dark:text-gray-300">
             Upload your job data using one of the methods below. Each job should include ID, arrival time, execution
             time, deadline, and weight.
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
           <Tabs value={uploadMethod} onValueChange={(v) => setUploadMethod(v as any)}>
-            <TabsList className="grid w-full grid-cols-3 bg-blue-50 dark:bg-gray-700 p-1">
+            <TabsList className="grid w-full grid-cols-3 bg-blue-50 dark:bg-gray-700 p-1 text-xs md:text-sm">
               <TabsTrigger value="csv" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-600">
                 CSV Upload
               </TabsTrigger>
@@ -199,11 +199,13 @@ export function UploadJobsForm() {
                 <Label htmlFor="csv-upload" className="text-blue-700 dark:text-blue-300">
                   Upload CSV File
                 </Label>
-                <div className="border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+                <div className="border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-lg p-4 md:p-6 text-center hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
                   <Input id="csv-upload" type="file" accept=".csv" onChange={handleCsvUpload} className="hidden" />
                   <label htmlFor="csv-upload" className="cursor-pointer flex flex-col items-center">
-                    <Upload className="h-10 w-10 text-blue-500 mb-2" />
-                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Click to upload CSV</span>
+                    <Upload className="h-8 w-8 md:h-10 md:w-10 text-blue-500 mb-2" />
+                    <span className="text-xs md:text-sm font-medium text-blue-600 dark:text-blue-400">
+                      Click to upload CSV
+                    </span>
                     <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">or drag and drop</span>
                   </label>
                 </div>
@@ -253,18 +255,18 @@ export function UploadJobsForm() {
             </TabsContent>
           </Tabs>
         </CardContent>
-        <CardFooter className="flex justify-between bg-gray-50 dark:bg-gray-800/50 p-6 border-t border-gray-100 dark:border-gray-700">
+        <CardFooter className="flex flex-col sm:flex-row gap-3 justify-between bg-gray-50 dark:bg-gray-800/50 p-4 md:p-6 border-t border-gray-100 dark:border-gray-700">
           <Button
             variant="outline"
             onClick={() => setJobs([])}
-            className="border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20"
+            className="w-full sm:w-auto border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20"
           >
             Clear Jobs
           </Button>
           <Button
             onClick={handleRunSimulation}
             disabled={isLoading}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
           >
             {isLoading ? (
               <>

@@ -8,15 +8,17 @@ export function AlgorithmExplanation() {
   return (
     <div className="grid gap-6">
       <Card className="border-none shadow-md">
-        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20">
-          <CardTitle className="text-xl text-blue-700 dark:text-blue-300">Greedy Scheduling Algorithms</CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-300">
+        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 p-4 md:p-6">
+          <CardTitle className="text-lg md:text-xl text-blue-700 dark:text-blue-300">
+            Greedy Scheduling Algorithms
+          </CardTitle>
+          <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
             Learn about the three classic greedy scheduling algorithms implemented in this simulator
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
           <Tabs defaultValue="sjf">
-            <TabsList className="grid w-full grid-cols-3 bg-blue-50 dark:bg-blue-900/20 p-1 mb-6">
+            <TabsList className="grid w-full grid-cols-3 bg-blue-50 dark:bg-blue-900/20 p-1 mb-4 md:mb-6 text-xs md:text-sm">
               <TabsTrigger
                 value="sjf"
                 className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800 data-[state=active]:text-blue-700 dark:data-[state=active]:text-blue-400"
@@ -27,43 +29,49 @@ export function AlgorithmExplanation() {
                 value="edf"
                 className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800 data-[state=active]:text-blue-700 dark:data-[state=active]:text-blue-400"
               >
-                Earliest Deadline First
+                Earliest Deadline
               </TabsTrigger>
               <TabsTrigger
                 value="weighted"
                 className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800 data-[state=active]:text-blue-700 dark:data-[state=active]:text-blue-400"
               >
-                Weighted Job Scheduling
+                Weighted Job
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="sjf">
-              <div className="grid gap-6">
-                <div className="flex items-start bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                  <div className="bg-blue-100 dark:bg-blue-800 p-3 rounded-full mr-4">
-                    <Clock className="h-6 w-6 text-blue-600 dark:text-blue-300" />
+              <div className="grid gap-4 md:gap-6">
+                <div className="flex flex-col sm:flex-row items-start bg-blue-50 dark:bg-blue-900/20 p-3 md:p-4 rounded-lg">
+                  <div className="bg-blue-100 dark:bg-blue-800 p-2 md:p-3 rounded-full mr-0 mb-2 sm:mb-0 sm:mr-4">
+                    <Clock className="h-5 w-5 md:h-6 md:w-6 text-blue-600 dark:text-blue-300" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-blue-700 dark:text-blue-300">Shortest Job First (SJF)</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mt-1">
+                    <h3 className="text-lg md:text-xl font-semibold text-blue-700 dark:text-blue-300">
+                      Shortest Job First (SJF)
+                    </h3>
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-1">
                       A greedy scheduling algorithm that prioritizes jobs with the shortest execution time.
                     </p>
                   </div>
                 </div>
 
-                <div className="grid gap-6 mt-2">
-                  <div className="bg-white dark:bg-gray-800 p-5 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">How It Works</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                <div className="grid gap-4 md:gap-6 mt-2">
+                  <div className="bg-white dark:bg-gray-800 p-3 md:p-5 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300 text-sm md:text-base">
+                      How It Works
+                    </h4>
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                       SJF selects the job with the shortest execution time from the available jobs and executes it
                       first. This process continues until all jobs are executed. The algorithm aims to minimize the
                       average waiting time for a given set of jobs.
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Pseudocode</h4>
-                    <pre className="bg-gray-900 text-gray-100 p-4 rounded-md text-sm overflow-auto">
+                  <div className="bg-gray-50 dark:bg-gray-800/50 p-3 md:p-5 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300 text-sm md:text-base">
+                      Pseudocode
+                    </h4>
+                    <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-md text-xs md:text-sm overflow-auto">
                       {`function SJF(jobs):
     sort jobs by execution_time in ascending order
     current_time = 0
@@ -85,47 +93,53 @@ export function AlgorithmExplanation() {
                     </pre>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-100 dark:border-green-900/30 shadow-sm">
-                      <h4 className="font-medium mb-2 text-green-700 dark:text-green-300">Advantages</h4>
-                      <ul className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div className="bg-green-50 dark:bg-green-900/20 p-3 md:p-5 rounded-lg border border-green-100 dark:border-green-900/30 shadow-sm">
+                      <h4 className="font-medium mb-2 text-green-700 dark:text-green-300 text-sm md:text-base">
+                        Advantages
+                      </h4>
+                      <ul className="space-y-1 md:space-y-2">
                         {[
                           "Minimizes average waiting time when job lengths are known",
                           "Simple to implement and understand",
                           "Provides good throughput for batch systems",
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="bg-green-100 dark:bg-green-800 p-1 rounded-full mr-2 mt-0.5">
-                              <CheckCircle className="h-3 w-3 text-green-600 dark:text-green-400" />
+                            <div className="bg-green-100 dark:bg-green-800 p-1 rounded-full mr-2 mt-0.5 flex-shrink-0">
+                              <CheckCircle className="h-2 w-2 md:h-3 md:w-3 text-green-600 dark:text-green-400" />
                             </div>
-                            <span className="text-sm text-gray-700 dark:text-gray-300">{item}</span>
+                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-lg border border-amber-100 dark:border-amber-900/30 shadow-sm">
-                      <h4 className="font-medium mb-2 text-amber-700 dark:text-amber-300">Limitations</h4>
-                      <ul className="space-y-2">
+                    <div className="bg-amber-50 dark:bg-amber-900/20 p-3 md:p-5 rounded-lg border border-amber-100 dark:border-amber-900/30 shadow-sm">
+                      <h4 className="font-medium mb-2 text-amber-700 dark:text-amber-300 text-sm md:text-base">
+                        Limitations
+                      </h4>
+                      <ul className="space-y-1 md:space-y-2">
                         {[
                           "Can lead to starvation of longer jobs if shorter jobs keep arriving",
                           "Requires accurate knowledge of job execution times",
                           "Not optimal for interactive or real-time systems",
                         ].map((item, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="bg-amber-100 dark:bg-amber-800 p-1 rounded-full mr-2 mt-0.5">
-                              <AlertTriangle className="h-3 w-3 text-amber-600 dark:text-amber-400" />
+                            <div className="bg-amber-100 dark:bg-amber-800 p-1 rounded-full mr-2 mt-0.5 flex-shrink-0">
+                              <AlertTriangle className="h-2 w-2 md:h-3 md:w-3 text-amber-600 dark:text-amber-400" />
                             </div>
-                            <span className="text-sm text-gray-700 dark:text-gray-300">{item}</span>
+                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-100 dark:border-blue-900/30 shadow-sm">
-                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300">Real-world Applications</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 md:p-5 rounded-lg border border-blue-100 dark:border-blue-900/30 shadow-sm">
+                    <h4 className="font-medium mb-2 text-blue-700 dark:text-blue-300 text-sm md:text-base">
+                      Real-world Applications
+                    </h4>
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                       SJF is commonly used in batch processing systems, print queue management, and CPU scheduling in
                       non-interactive systems where job execution times are known or can be estimated accurately.
                     </p>

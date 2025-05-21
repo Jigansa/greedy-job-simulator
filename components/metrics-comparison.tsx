@@ -93,14 +93,16 @@ export function MetricsComparison({ results }: MetricsComparisonProps) {
   return (
     <div className="grid gap-6">
       <Card className="border-none shadow-md">
-        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20">
-          <CardTitle className="text-xl text-blue-700 dark:text-blue-300">Performance Metrics Comparison</CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-300">
+        <CardHeader className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 p-4 md:p-6">
+          <CardTitle className="text-lg md:text-xl text-blue-700 dark:text-blue-300">
+            Performance Metrics Comparison
+          </CardTitle>
+          <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
             Comparing key metrics across all three scheduling algorithms
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-6">
-          <div className="h-[400px]">
+        <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+          <div className="h-[300px] md:h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={barData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
@@ -125,14 +127,16 @@ export function MetricsComparison({ results }: MetricsComparisonProps) {
       </Card>
 
       <Card className="border-none shadow-md mt-6">
-        <CardHeader className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-900/20 dark:to-pink-900/20">
-          <CardTitle className="text-xl text-purple-700 dark:text-purple-300">Job Completion Trends</CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-300">
+        <CardHeader className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-900/20 dark:to-pink-900/20 p-4 md:p-6">
+          <CardTitle className="text-lg md:text-xl text-purple-700 dark:text-purple-300">
+            Job Completion Trends
+          </CardTitle>
+          <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
             Showing how jobs are completed over time for each algorithm
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-6">
-          <div className="h-[400px]">
+        <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+          <div className="h-[300px] md:h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
